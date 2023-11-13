@@ -3,24 +3,26 @@ function play() {
     let attempts = 1;
     let tries = []
 
+    const name = prompt("What is your name?")
+
     while(true) {
-        const guess = prompt("Guess a number!");
+        const guess = prompt(`${name}, guess a number?`);
         if (guess === null) {
             alert("Goodbye!")
             break;
         }
         if (guess == secretNumber) {
-            alert("You win!")
-            prompt(`It took you ${attempts} attempts! Your previous answers were ${tries}. The correct answer was ${secretNumber}.`)
+            alert(`Congrats ${name}, you won!`)
+            alert(`${name}, It took you ${attempts} attempts! Your previous answers were ${tries}. The correct answer was ${secretNumber}.`)
             break;
         }
         if (guess > secretNumber) {
-            alert("Lower! Try again!");
+            alert(`${name}, guess lower! Try again.`);
         }
         if (guess < secretNumber) {
-            alert("Higher! Try again!");
+            alert(`${name}, guess higher! Try again.`);
         }
-        tries.push(attempts)
+        tries.push(guess)
         attempts += 1
     }
 }

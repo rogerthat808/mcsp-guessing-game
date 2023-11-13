@@ -1,6 +1,6 @@
 function play() {
     let secretNumber = "5";
-    // let secretNumber = 5;
+    let attempts = 1;
 
     while(true) {
         const guess = prompt("Guess a number!");
@@ -10,14 +10,16 @@ function play() {
         }
         if (guess == secretNumber) {
             alert("You win!")
+            prompt(`It took you ${attempts} attempts!`)
             break;
         }
         if (guess > secretNumber) {
-            alert("Guess lower!");
+            alert("Lower! Try again!");
         }
         if (guess < secretNumber) {
-            alert("Guess higher!");
+            alert("Higher! Try again!");
         }
+        attempts += 1
     }
 }
 
